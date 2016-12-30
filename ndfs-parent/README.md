@@ -1,4 +1,5 @@
 分布式图片存储系统（demo版）
+
 服务端启动流程：
   1. 启动nameserver： 运行ndfs.nameserver.NameServerMainClass的main方法。相应的端口和参数配置在src/main/resources/conf.properties文件中。
   2. 启动dataserver： 运行ndfs.dataserver.DataServerMainClass的main方法。为减少文件碎片，第一次启动时，系统会在D盘下建立400多个block文件，用于后续的图片存储。端口和参数配置在src/main/resources/conf.properties文件中。
