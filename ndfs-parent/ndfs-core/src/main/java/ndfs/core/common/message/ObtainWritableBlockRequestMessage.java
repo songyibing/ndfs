@@ -14,9 +14,10 @@ package ndfs.core.common.message;
  */
 public class ObtainWritableBlockRequestMessage extends RequestMessage {
 
-    public ObtainWritableBlockRequestMessage(String path) {
+    public ObtainWritableBlockRequestMessage(String path, String uuid) {
         super();
         this.path = path;
+        this.uuid = uuid;
     }
 
     @Override
@@ -36,6 +37,20 @@ public class ObtainWritableBlockRequestMessage extends RequestMessage {
 
     }
 
+    public String getUuid() {
+        
+        return uuid;
+            
+    }
+
+    public void setUuid(String uuid) {
+        
+        this.uuid = uuid;
+            
+    }
+
     private String path;
+    
+    private String uuid;
 
 }

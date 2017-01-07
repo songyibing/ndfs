@@ -34,6 +34,7 @@ public class DataServerMainClass {
     private static final String keyForNameserverIp = "nameserver.ip";
     private static final String keyForNameserverPort = "nameserver.port";
     private static final String keyForBlockSize = "block.size";
+    private static final String partitionPath = "D://";
     private static final Logger logger = LogUtils.getLogger(DataServerMainClass.class);
 
     public static void main(String[] args) throws InterruptedException {
@@ -76,8 +77,8 @@ public class DataServerMainClass {
         long freeSpace = file.getFreeSpace();
         System.out.println(System.currentTimeMillis());
         long allocateSpace = 0;
-        if ((double) freeSpace / totalSpace > 0.8) {
-            allocateSpace = freeSpace - (long) (totalSpace * 0.8);
+        if ((double) freeSpace / totalSpace > 0.6) {
+            allocateSpace = freeSpace - (long) (totalSpace * 0.6);
         }
         long count = allocateSpace / (Long.valueOf(BootLoader.getProperties(keyForBlockSize)) * MB);
         for (int i = 0; i < count; i++) {

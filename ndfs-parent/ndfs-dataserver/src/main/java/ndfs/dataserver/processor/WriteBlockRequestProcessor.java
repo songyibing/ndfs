@@ -54,6 +54,7 @@ public class WriteBlockRequestProcessor extends RequestMessageProcessor<WriteBlo
         String path = blockId + "|" + blockInfo.getCurrentFileId();
         WriteBlockResponseMessage responseMessage = new WriteBlockResponseMessage();
         responseMessage.setFilePath(path);
+        responseMessage.setUuid(requestMessage.getUuid());
         return responseMessage;
             
     }

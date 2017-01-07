@@ -37,7 +37,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<CommonMessag
     protected void messageReceived(ChannelHandlerContext channelHandlerContext, CommonMessage message)
             throws Exception {
 
-        MessageProcessor processor = BootLoader.getProcessor(message.getMsgType());
+        @SuppressWarnings("unchecked")
+        MessageProcessor<CommonMessage> processor = (MessageProcessor<CommonMessage>) BootLoader.getProcessor(message.getMsgType());
         processor.processMessage(channelHandlerContext, message);
         ReferenceCountUtil.release(message);
 

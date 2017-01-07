@@ -52,4 +52,18 @@ public class WriteBlockRequestMessage extends RequestMessage {
         this.blockId = blockId;
 
     }
+    
+    public String getUuid() {
+        
+        return uuid;
+            
+    }
+
+    public void setUuid(String uuid) {
+        
+        this.uuid = uuid;
+            
+    }
+
+    private String uuid;
 }

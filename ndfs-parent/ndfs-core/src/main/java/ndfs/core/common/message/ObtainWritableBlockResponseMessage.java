@@ -57,10 +57,25 @@ public class ObtainWritableBlockResponseMessage extends ResponseMessage {
     }
 
 
+    public String getUuid() {
+        
+        return uuid;
+            
+    }
+
+    public void setUuid(String uuid) {
+        
+        this.uuid = uuid;
+            
+    }
+
+
     private long blockId;
     
     private String serverIp;
     
     private String path;
+    
+    private String uuid;
 
 }

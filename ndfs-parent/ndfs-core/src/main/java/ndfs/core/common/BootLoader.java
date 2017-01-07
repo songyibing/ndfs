@@ -13,6 +13,7 @@ import org.reflections.Reflections;
 
 import ndfs.core.annotation.Processor;
 import ndfs.core.cache.exception.CommonException;
+import ndfs.core.common.message.CommonMessage;
 import ndfs.core.utils.LogUtils;
 import ndfs.core.utils.Logger;
 
@@ -34,7 +35,7 @@ public class BootLoader {
 
     // 处理器的缓存
     @SuppressWarnings("unchecked")
-    private static final HashMap<Integer, MessageProcessor<?>> processorMap = loadProcessor();
+    private static final HashMap<Integer, MessageProcessor<? extends CommonMessage>> processorMap = loadProcessor();
 
     // 处理器包名
     private static final String keyForProcessorPackage = "processor.package";

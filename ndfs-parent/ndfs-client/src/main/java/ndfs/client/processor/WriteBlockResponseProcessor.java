@@ -5,6 +5,7 @@
 package ndfs.client.processor;
 
 import io.netty.channel.ChannelHandlerContext;
+import ndfs.client.cache.UuidContent;
 import ndfs.core.annotation.Processor;
 import ndfs.core.common.message.MsgTypeEnum;
 import ndfs.core.common.message.RequestMessage;
@@ -29,7 +30,8 @@ public class WriteBlockResponseProcessor extends ResponseMessageProcessor<WriteB
     protected RequestMessage process(ChannelHandlerContext channelHandlerContext,
             WriteBlockResponseMessage responseMessage) {
         logger.info("上传文件成功，文件url为" + responseMessage.getFilePath());
-
+        String uuid = responseMessage.getUuid();
+        UuidContent.getInstance().put(uuid, responseMessage.getFilePath());
         return RequestMessage.nullObject();
 
     }

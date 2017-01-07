@@ -39,6 +39,7 @@ public class ObtainWritableBlockResponseProcessor extends ResponseMessageProcess
         WriteBlockRequestMessage writeBlockRequestMessage = new WriteBlockRequestMessage();
         writeBlockRequestMessage.setFileContent(getBytesAndLength(message.getPath()));
         writeBlockRequestMessage.setBlockId(message.getBlockId());
+        writeBlockRequestMessage.setUuid(message.getUuid());
         // 写入文件
         dataClient.getSocketChannel().writeAndFlush(writeBlockRequestMessage);
         try {
@@ -47,7 +48,7 @@ public class ObtainWritableBlockResponseProcessor extends ResponseMessageProcess
             throw new CommonException(StatusCodeEnum.UN_KNOWN_ERROR, e.getMessage());
         }
         return RequestMessage.nullObject();
-
+  
     }
 
     private byte[] getBytesAndLength(String filePath) {

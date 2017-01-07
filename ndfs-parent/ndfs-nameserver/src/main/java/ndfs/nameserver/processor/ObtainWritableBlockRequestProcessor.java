@@ -35,6 +35,7 @@ public class ObtainWritableBlockRequestProcessor
         message.setBlockId(blockId);
         message.setServerIp(ServerManager.getServerIp(serverId));
         message.setPath(requestMessage.getPath());
+        message.setUuid(requestMessage.getUuid());
         return message;
     }
 

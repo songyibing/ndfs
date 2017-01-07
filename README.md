@@ -18,4 +18,7 @@
 
 
 ##实现原理 
+
+![image](https://github.com/songyibing/ndfs/im.png)
+
 参考淘宝图片文件存储系统。http://code.taobao.org/p/tfs/wiki/intro/
